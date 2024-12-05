@@ -18,6 +18,11 @@ namespace ProniaFrontToBack
             var app = builder.Build();
 
             app.MapControllerRoute(
+                name: "areas",
+                pattern: "{area:exists}/{controller=dashboard}/{action=index}/{id?}"
+             );
+
+            app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=home}/{action=index}/{id?}"
              );

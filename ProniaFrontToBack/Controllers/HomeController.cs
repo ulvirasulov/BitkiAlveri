@@ -33,6 +33,11 @@ namespace ProniaFrontToBack.Controllers
                 .ThenInclude(tp => tp.Tag)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
+            ViewBag.ReProduct = await _dbContext.Products
+                .Include(x => x.ProductImages)
+                .Where(x => x.CategoryId == product.CategoryId && x.Id != product.Id)
+                .ToListAsync();
+
             return View(product);
         }
 

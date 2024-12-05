@@ -9,9 +9,9 @@ namespace ProniaFrontToBack.Models
         public string Description { get; set; }
         public string SKU { get; set; }
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
-        public List<TagProduct> TagProducts { get; set; }
-        public List<ProductImage> ProductImages { get; set; }
+        public Category? Category { get; set; }
+        public List<TagProduct>? TagProducts { get; set; }
+        public List<ProductImage>? ProductImages { get; set; }
 
     }
 }
