@@ -1,0 +1,57 @@
+﻿@model CreateProductVm
+
+<div class="container">
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label asp-for="Name">Name</label>
+                <input class="form-control" placeholder="Enter Name" asp-for="Name">
+                <span asp-validation-for="Name" style="color:red"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Price">Price</label>
+                <input class="form-control" placeholder="Enter Price" asp-for="Price">
+                <span asp-validation-for="Price" style="color:red"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="SKU">SKU</label>
+                <input class="form-control" placeholder="Enter SKU" asp-for="SKU">
+                <span asp-validation-for="SKU" style="color:red"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label asp-for="Description">Description</label>
+                <textarea class="form-control" asp-for="Description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId">Category</label>
+                <select class="form-control" asp-for="CategoryId" asp-items=@(new SelectList(ViewBag.Categories,"Id","Name"))>
+                    <option>Select Category</option>
+                </select>
+                <span asp-validation-for="CategoryId" style="color:red"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TagIds">Tags</label>
+                <select class="form-control" asp-for="TagIds" asp-items=@(new SelectList(ViewBag.Tags,"Id","Name"))>
+                </select>
+                <span asp-validation-for="TagIds" style="color:red"></span>
+            </div>
+        </div>
+        <div>
+            <div class="form-group col-md-4">
+                <label asp-for="MainPhoto">MainPhoto</label>
+                <input class="form-control" asp-for="MainPhoto">
+                <span asp-validation-for="MainPhoto" style="color:red"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Images">Images</label>
+                <input class="form-control" asp-for="Images">
+                <span asp-validation-for="Images" style="color:red"></span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
